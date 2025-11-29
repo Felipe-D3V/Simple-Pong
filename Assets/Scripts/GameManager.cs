@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     public GameObject mensagemReiniciar;
     public GameObject TelaInicial;
 
+    public GameObject player2; // arraste o jogador 2 aqui pelo Inspector
+
     public AudioSource SomDeGol;
     public AudioSource VictorySound;
     public AudioSource ButtonSound;
@@ -140,12 +142,25 @@ public class GameManager : MonoBehaviour
         Placar.SetActive(true);
 
     }
+
+    public void JogarContraIA()
+    {
+        
+        ButtonSound.Play();
+        Time.timeScale = 1f;
+        Cursor.visible = false;
+        TelaInicial.SetActive(false);
+        Placar.SetActive(true);
+        SceneManager.LoadScene("PongIA");
+    }
+
     public void SairDoJogo()
     {
         ButtonSound.Play();
         Application.Quit();
         Debug.Log("Saiu do Jogo");
     }
+
 
 
 
